@@ -5,6 +5,11 @@
   "repository": "git@github.com:oneyoung19/learn-vite.git",
   "author": "yangxiaoping <2878847069@qq.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "devDependencies": {
     "vite": "^5.0.8"
   }
