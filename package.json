@@ -1,0 +1,11 @@
+{
+  "name": "learn-vite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:oneyoung19/learn-vite.git",
+  "author": "yangxiaoping <2878847069@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.8"
+  }
+}
