@@ -1,1 +1,3 @@
-document.write('Vite hotload')
+import { plus } from './utils/utils'
+
+console.log(plus(1, 2))
