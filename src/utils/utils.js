@@ -1,3 +1,3 @@
-export const plus = function (a, b) {
+export const plus = (a, b) => {
   return a + b
 }
