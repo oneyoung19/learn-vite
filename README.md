@@ -17,4 +17,5 @@ Vue 2.7 SFC 支持：@vitejs/plugin-vue2
 Vue 2.7 JSX support via @vitejs/plugin-vue2-jsx
 
 - [ ] `vite` 与 `TS` 又有什么联系和限制？
+- [ ] `img` 默认是服务器 `url`，如何转化为 `base64` 数据？
 - [ ] `esbuild`

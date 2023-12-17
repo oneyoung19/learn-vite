@@ -2,7 +2,12 @@ import './assets/styles/reset.less'
 // 添加?inline参数，那么该css样式文件 将不会注入到页面中，而是返回模块默认值 供开发者使用
 // import customLess from './assets/styles/custom.less?inline'
 import './assets/styles/custom.less'
+// 导入一个静态资源会返回解析后的URL 与添加?url参数表现一致
+import usdImg from './assets/image/usd.png'
 import { plus } from './utils/utils.js'
+
+// /src/assets/image/usd.png
+console.log(usdImg)
 // 在浏览器中利用原生ES导入 该语法会报错。因此vite需要预构建 Uncaught TypeError: Failed to resolve module specifier "lodash". Relative references must start with either "/", "./", or "../".
 import { camelCase } from 'lodash'
 
