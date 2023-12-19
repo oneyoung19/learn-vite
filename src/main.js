@@ -7,6 +7,11 @@ import usdImg from './assets/image/usd.png'
 // 导入JSON vite会将json文件转化为ESM规范文件
 import student, { name } from './data/student.json'
 console.log(student, name)
+// 导入worker
+import MyWorker from './worker.js?worker'
+const worker = new MyWorker()
+worker.postMessage('worker Message')
+console.log(MyWorker)
 import { plus } from './utils/utils.js'
 
 // /src/assets/image/usd.png
