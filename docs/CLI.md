@@ -57,3 +57,7 @@ vite build [root]
 
 
 ## 其他
+
+### vite optimize
+
+### vite preview
