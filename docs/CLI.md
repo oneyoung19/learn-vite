@@ -31,27 +31,29 @@ vite [root]
 vite build [root]
 ```
 
-| 选项              |      |
-| ----------------- | ---- |
-| --target <target> |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
-|                   |      |
+| 选项                           |                                                              |
+| ------------------------------ | ------------------------------------------------------------ |
+| `--target <target>`            | 编译目标（默认为：`"modules"`）(`string`)                    |
+| `--outDir <dir>`               | 输出目录（默认为：`dist`）(`string`)                         |
+| `--assetsDir <dir>`            | 在输出目录下放置资源的目录（默认为：`"assets"`）(`string`)   |
+| `--assetsInlineLimit <number>` | 静态资源内联为 base64 编码的阈值，以字节为单位（默认为：`4096`）(`number`) |
+| `--ssr [entry]`                | 为服务端渲染配置指定入口文件 (`string`)                      |
+| `--sourcemap [output]`         | 构建后输出 source map 文件（默认为：`false`）(`boolean |"inline" |"hidden"`) |
+| `--minify [minifier]`          | 允许或禁用最小化混淆，或指定使用哪种混淆器（默认为：`"esbuild"`）(`boolean |"terser" |"esbuild"`) |
+| `--manifest [name]`            | 构建后生成 manifest.json 文件 (`boolean |string`)            |
+| `--ssrManifest [name]`         | 构建后生成 SSR manifest.json 文件 (`boolean |string`)        |
+| `--force`                      | 强制优化器忽略缓存并重新构建（实验性）(`boolean`)            |
+| `--emptyOutDir`                | 若输出目录在根目录外，强制清空输出目录 (`boolean`)           |
+| `-w, --watch`                  | 在磁盘中模块发生变化时，重新构建 (`boolean`)                 |
+| `-c, --config <file>`          | 使用指定的配置文件 (`string`)                                |
+| `--base <path>`                | 公共基础路径（默认为：`/`）(`string`)                        |
+| `-l, --logLevel <level>`       | Info \| warn \| error \| silent (`string`)                   |
+| `--clearScreen`                | 允许或禁用打印日志时清除屏幕 (`boolean`)                     |
+| `--profile`                    | 启动内置的 Node.js 调试器                                    |
+| `-d, --debug [feat]`           | 显示调试日志 (`string |boolean`)                             |
+| `-f, --filter <filter>`        | 过滤调试日志 (`string`)                                      |
+| `-m, --mode <mode>`            | 设置环境模式 (`string`)                                      |
+| `-h, --help`                   | 显示可用的 CLI 选项                                          |
 
 
 
