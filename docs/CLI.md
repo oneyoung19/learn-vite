@@ -85,3 +85,26 @@ vite optimize [root]
 ### vite preview
 
 本地预览构建产物。不要将其用作生产服务器，因为它不是为此而设计的。
+
+```shell
+vite preview [root]
+```
+
+
+
+| 选项                     |                                              |
+| ------------------------ | -------------------------------------------- |
+| `--host [host]`          | 指定主机名称 (`string`)                      |
+| `--port <port>`          | 指定端口 (`number`)                          |
+| `--strictPort`           | 如果指定的端口已在使用中，则退出 (`boolean`) |
+| `--open [path]`          | 启动时打开浏览器 (`boolean |string`)         |
+| `--outDir <dir>`         | 输出目录（默认为：`dist`)(`string`)          |
+| `-c, --config <file>`    | 使用指定的配置文件 (`string`)                |
+| `--base <path>`          | 公共基础路径（默认为：`/`）(`string`)        |
+| `-l, --logLevel <level>` | Info \| warn \| error \| silent (`string`)   |
+| `--clearScreen`          | 允许或禁用打印日志时清除屏幕 (`boolean`)     |
+| `-d, --debug [feat]`     | 显示调试日志 (`string |boolean`)             |
+| `-f, --filter <filter>`  | 过滤调试日志 (`string`)                      |
+| `-m, --mode <mode>`      | 设置环境模式 (`string`)                      |
+| `-h, --help`             | 显示可用的 CLI 选项                          |
+
