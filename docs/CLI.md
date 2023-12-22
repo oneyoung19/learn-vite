@@ -62,4 +62,26 @@ vite build [root]
 
 ### vite optimize
 
+预构建依赖。
+
+```shell
+vite optimize [root]
+```
+
+| 选项                     |                                           |
+| ------------------------ | ----------------------------------------- |
+| `--force`                | 强制优化器忽略缓存并重新构建 (`boolean`)  |
+| `-c, --config <file>`    | 使用指定的配置文件 (`string`)             |
+| `--base <path>`          | 公共基础路径（默认为：`/`）(`string`)     |
+| `-l, --logLevel <level>` | Info \| warn \| error \|silent (`string`) |
+| `--clearScreen`          | 允许或禁用打印日志时清除屏幕 (`boolean`)  |
+| `-d, --debug [feat]`     | 显示调试日志 (`string |boolean`)          |
+| `-f, --filter <filter>`  | 过滤调试日志 (`string`)                   |
+| `-m, --mode <mode>`      | 设置环境模式 (`string`)                   |
+| `-h, --help`             | 显示可用的 CLI 选项                       |
+
+
+
 ### vite preview
+
+本地预览构建产物。不要将其用作生产服务器，因为它不是为此而设计的。
