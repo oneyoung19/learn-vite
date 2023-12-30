@@ -17,10 +17,11 @@ import { plus } from './utils/utils.js'
 // /src/assets/image/usd.png
 console.log(usdImg)
 // 在浏览器中利用原生ES导入 该语法会报错。因此vite需要预构建 Uncaught TypeError: Failed to resolve module specifier "lodash". Relative references must start with either "/", "./", or "../".
-// import { camelCase } from 'lodash'
+import { camelCase } from 'lodash'
+
+console.log(camelCase('Hello World'))
 
 console.log(plus(1, 2))
-// console.log(camelCase('Hello World'))
 
 /*
 预构建的功能，体现在两方面：
