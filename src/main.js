@@ -13,7 +13,8 @@ const worker = new MyWorker()
 worker.postMessage('worker Message')
 console.log(MyWorker)
 import { plus } from './utils/utils.js'
-
+import { testGlobImport } from './utils/index.js'
+console.log('testGlobImport', testGlobImport)
 // /src/assets/image/usd.png
 console.log(usdImg)
 // 在浏览器中利用原生ES导入 该语法会报错。因此vite需要预构建 Uncaught TypeError: Failed to resolve module specifier "lodash". Relative references must start with either "/", "./", or "../".
