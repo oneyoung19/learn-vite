@@ -14,3 +14,7 @@
 ## Server hotreload
 
 ## build splitchunks
+
+## Vite SSR
+
+## Vite Plugin
