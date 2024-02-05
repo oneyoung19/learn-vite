@@ -1,0 +1,1185 @@
+{
+  "ast": {
+    "type": 0,
+    "source": "\n  <div>\n    <span title=\"标题\"></span>\n    <span :title=\"$t('标题2')\"></span>\n    <span>你好吗</span>\n    <span>{{ $t('你好吗') }}</span>\n    <p>{{ en ? '英文' : '中文' }}</p>\n    <!-- 注释 -->\n  </div>\n",
+    "children": [
+      {
+        "type": 1,
+        "tag": "div",
+        "ns": 0,
+        "tagType": 0,
+        "props": [],
+        "children": [
+          {
+            "type": 1,
+            "tag": "span",
+            "ns": 0,
+            "tagType": 0,
+            "props": [
+              {
+                "type": 6,
+                "name": "title",
+                "nameLoc": {
+                  "start": { "column": 11, "line": 3, "offset": 19 },
+                  "end": { "column": 16, "line": 3, "offset": 24 },
+                  "source": "title"
+                },
+                "value": {
+                  "type": 2,
+                  "content": "标题",
+                  "loc": {
+                    "start": { "column": 17, "line": 3, "offset": 25 },
+                    "end": { "column": 21, "line": 3, "offset": 29 },
+                    "source": "\"标题\""
+                  }
+                },
+                "loc": {
+                  "start": { "column": 11, "line": 3, "offset": 19 },
+                  "end": { "column": 21, "line": 3, "offset": 29 },
+                  "source": "title=\"标题\""
+                }
+              }
+            ],
+            "children": [],
+            "loc": {
+              "start": { "column": 5, "line": 3, "offset": 13 },
+              "end": { "column": 29, "line": 3, "offset": 37 },
+              "source": "<span title=\"标题\"></span>"
+            },
+            "codegenNode": {
+              "type": 13,
+              "tag": "\"span\"",
+              "props": {
+                "type": 15,
+                "loc": {
+                  "start": { "column": 5, "line": 3, "offset": 13 },
+                  "end": { "column": 29, "line": 3, "offset": 37 },
+                  "source": "<span title=\"标题\"></span>"
+                },
+                "properties": [
+                  {
+                    "type": 16,
+                    "loc": {
+                      "start": { "line": 1, "column": 1, "offset": 0 },
+                      "end": { "line": 1, "column": 1, "offset": 0 },
+                      "source": ""
+                    },
+                    "key": {
+                      "type": 4,
+                      "loc": {
+                        "start": { "column": 11, "line": 3, "offset": 19 },
+                        "end": { "column": 16, "line": 3, "offset": 24 },
+                        "source": "title"
+                      },
+                      "content": "title",
+                      "isStatic": true,
+                      "constType": 3
+                    },
+                    "value": {
+                      "type": 4,
+                      "loc": {
+                        "start": { "column": 17, "line": 3, "offset": 25 },
+                        "end": { "column": 21, "line": 3, "offset": 29 },
+                        "source": "\"标题\""
+                      },
+                      "content": "标题",
+                      "isStatic": true,
+                      "constType": 3
+                    }
+                  }
+                ]
+              },
+              "isBlock": false,
+              "disableTracking": false,
+              "isComponent": false,
+              "loc": {
+                "start": { "column": 5, "line": 3, "offset": 13 },
+                "end": { "column": 29, "line": 3, "offset": 37 },
+                "source": "<span title=\"标题\"></span>"
+              }
+            }
+          },
+          {
+            "type": 1,
+            "tag": "span",
+            "ns": 0,
+            "tagType": 0,
+            "props": [
+              {
+                "type": 7,
+                "name": "bind",
+                "rawName": ":title",
+                "exp": {
+                  "type": 4,
+                  "loc": {
+                    "start": { "column": 19, "line": 4, "offset": 56 },
+                    "end": { "column": 28, "line": 4, "offset": 65 },
+                    "source": "$t('标题2')"
+                  },
+                  "content": "$t('标题2')",
+                  "isStatic": false,
+                  "constType": 0
+                },
+                "arg": {
+                  "type": 4,
+                  "loc": {
+                    "start": { "column": 12, "line": 4, "offset": 49 },
+                    "end": { "column": 17, "line": 4, "offset": 54 },
+                    "source": "title"
+                  },
+                  "content": "title",
+                  "isStatic": true,
+                  "constType": 3
+                },
+                "modifiers": [],
+                "loc": {
+                  "start": { "column": 11, "line": 4, "offset": 48 },
+                  "end": { "column": 29, "line": 4, "offset": 66 },
+                  "source": ":title=\"$t('标题2')\""
+                }
+              }
+            ],
+            "children": [],
+            "loc": {
+              "start": { "column": 5, "line": 4, "offset": 42 },
+              "end": { "column": 37, "line": 4, "offset": 74 },
+              "source": "<span :title=\"$t('标题2')\"></span>"
+            },
+            "codegenNode": {
+              "type": 13,
+              "tag": "\"span\"",
+              "props": {
+                "type": 15,
+                "loc": {
+                  "start": { "column": 5, "line": 4, "offset": 42 },
+                  "end": { "column": 37, "line": 4, "offset": 74 },
+                  "source": "<span :title=\"$t('标题2')\"></span>"
+                },
+                "properties": [
+                  {
+                    "type": 16,
+                    "loc": {
+                      "start": { "line": 1, "column": 1, "offset": 0 },
+                      "end": { "line": 1, "column": 1, "offset": 0 },
+                      "source": ""
+                    },
+                    "key": {
+                      "type": 4,
+                      "loc": {
+                        "start": { "column": 12, "line": 4, "offset": 49 },
+                        "end": { "column": 17, "line": 4, "offset": 54 },
+                        "source": "title"
+                      },
+                      "content": "title",
+                      "isStatic": true,
+                      "constType": 3
+                    },
+                    "value": {
+                      "type": 4,
+                      "loc": {
+                        "start": { "column": 19, "line": 4, "offset": 56 },
+                        "end": { "column": 28, "line": 4, "offset": 65 },
+                        "source": "$t('标题2')"
+                      },
+                      "content": "$t('标题2')",
+                      "isStatic": false,
+                      "constType": 0
+                    }
+                  }
+                ]
+              },
+              "patchFlag": "8 /* PROPS */",
+              "dynamicProps": "[\"title\"]",
+              "isBlock": false,
+              "disableTracking": false,
+              "isComponent": false,
+              "loc": {
+                "start": { "column": 5, "line": 4, "offset": 42 },
+                "end": { "column": 37, "line": 4, "offset": 74 },
+                "source": "<span :title=\"$t('标题2')\"></span>"
+              }
+            }
+          },
+          {
+            "type": 1,
+            "tag": "span",
+            "ns": 0,
+            "tagType": 0,
+            "props": [],
+            "children": [
+              {
+                "type": 2,
+                "content": "你好吗",
+                "loc": {
+                  "start": { "column": 11, "line": 5, "offset": 85 },
+                  "end": { "column": 14, "line": 5, "offset": 88 },
+                  "source": "你好吗"
+                }
+              }
+            ],
+            "loc": {
+              "start": { "column": 5, "line": 5, "offset": 79 },
+              "end": { "column": 21, "line": 5, "offset": 95 },
+              "source": "<span>你好吗</span>"
+            },
+            "codegenNode": {
+              "type": 13,
+              "tag": "\"span\"",
+              "children": {
+                "type": 2,
+                "content": "你好吗",
+                "loc": {
+                  "start": { "column": 11, "line": 5, "offset": 85 },
+                  "end": { "column": 14, "line": 5, "offset": 88 },
+                  "source": "你好吗"
+                }
+              },
+              "isBlock": false,
+              "disableTracking": false,
+              "isComponent": false,
+              "loc": {
+                "start": { "column": 5, "line": 5, "offset": 79 },
+                "end": { "column": 21, "line": 5, "offset": 95 },
+                "source": "<span>你好吗</span>"
+              }
+            }
+          },
+          {
+            "type": 1,
+            "tag": "span",
+            "ns": 0,
+            "tagType": 0,
+            "props": [],
+            "children": [
+              {
+                "type": 5,
+                "content": {
+                  "type": 4,
+                  "loc": {
+                    "start": { "column": 14, "line": 6, "offset": 109 },
+                    "end": { "column": 23, "line": 6, "offset": 118 },
+                    "source": "$t('你好吗')"
+                  },
+                  "content": "$t('你好吗')",
+                  "isStatic": false,
+                  "constType": 0
+                },
+                "loc": {
+                  "start": { "column": 11, "line": 6, "offset": 106 },
+                  "end": { "column": 26, "line": 6, "offset": 121 },
+                  "source": "{{ $t('你好吗') }}"
+                }
+              }
+            ],
+            "loc": {
+              "start": { "column": 5, "line": 6, "offset": 100 },
+              "end": { "column": 33, "line": 6, "offset": 128 },
+              "source": "<span>{{ $t('你好吗') }}</span>"
+            },
+            "codegenNode": {
+              "type": 13,
+              "tag": "\"span\"",
+              "children": {
+                "type": 5,
+                "content": {
+                  "type": 4,
+                  "loc": {
+                    "start": { "column": 14, "line": 6, "offset": 109 },
+                    "end": { "column": 23, "line": 6, "offset": 118 },
+                    "source": "$t('你好吗')"
+                  },
+                  "content": "$t('你好吗')",
+                  "isStatic": false,
+                  "constType": 0
+                },
+                "loc": {
+                  "start": { "column": 11, "line": 6, "offset": 106 },
+                  "end": { "column": 26, "line": 6, "offset": 121 },
+                  "source": "{{ $t('你好吗') }}"
+                }
+              },
+              "patchFlag": "1 /* TEXT */",
+              "isBlock": false,
+              "disableTracking": false,
+              "isComponent": false,
+              "loc": {
+                "start": { "column": 5, "line": 6, "offset": 100 },
+                "end": { "column": 33, "line": 6, "offset": 128 },
+                "source": "<span>{{ $t('你好吗') }}</span>"
+              }
+            }
+          },
+          {
+            "type": 1,
+            "tag": "p",
+            "ns": 0,
+            "tagType": 0,
+            "props": [],
+            "children": [
+              {
+                "type": 5,
+                "content": {
+                  "type": 4,
+                  "loc": {
+                    "start": { "column": 11, "line": 7, "offset": 139 },
+                    "end": { "column": 27, "line": 7, "offset": 155 },
+                    "source": "en ? '英文' : '中文'"
+                  },
+                  "content": "en ? '英文' : '中文'",
+                  "isStatic": false,
+                  "constType": 0
+                },
+                "loc": {
+                  "start": { "column": 8, "line": 7, "offset": 136 },
+                  "end": { "column": 30, "line": 7, "offset": 158 },
+                  "source": "{{ en ? '英文' : '中文' }}"
+                }
+              }
+            ],
+            "loc": {
+              "start": { "column": 5, "line": 7, "offset": 133 },
+              "end": { "column": 34, "line": 7, "offset": 162 },
+              "source": "<p>{{ en ? '英文' : '中文' }}</p>"
+            },
+            "codegenNode": {
+              "type": 13,
+              "tag": "\"p\"",
+              "children": {
+                "type": 5,
+                "content": {
+                  "type": 4,
+                  "loc": {
+                    "start": { "column": 11, "line": 7, "offset": 139 },
+                    "end": { "column": 27, "line": 7, "offset": 155 },
+                    "source": "en ? '英文' : '中文'"
+                  },
+                  "content": "en ? '英文' : '中文'",
+                  "isStatic": false,
+                  "constType": 0
+                },
+                "loc": {
+                  "start": { "column": 8, "line": 7, "offset": 136 },
+                  "end": { "column": 30, "line": 7, "offset": 158 },
+                  "source": "{{ en ? '英文' : '中文' }}"
+                }
+              },
+              "patchFlag": "1 /* TEXT */",
+              "isBlock": false,
+              "disableTracking": false,
+              "isComponent": false,
+              "loc": {
+                "start": { "column": 5, "line": 7, "offset": 133 },
+                "end": { "column": 34, "line": 7, "offset": 162 },
+                "source": "<p>{{ en ? '英文' : '中文' }}</p>"
+              }
+            }
+          },
+          {
+            "type": 3,
+            "content": " 注释 ",
+            "loc": {
+              "start": { "column": 5, "line": 8, "offset": 167 },
+              "end": { "column": 16, "line": 8, "offset": 178 },
+              "source": "<!-- 注释 -->"
+            }
+          }
+        ],
+        "loc": {
+          "start": { "column": 3, "line": 2, "offset": 3 },
+          "end": { "column": 9, "line": 9, "offset": 187 },
+          "source": "<div>\n    <span title=\"标题\"></span>\n    <span :title=\"$t('标题2')\"></span>\n    <span>你好吗</span>\n    <span>{{ $t('你好吗') }}</span>\n    <p>{{ en ? '英文' : '中文' }}</p>\n    <!-- 注释 -->\n  </div>"
+        },
+        "codegenNode": {
+          "type": 13,
+          "tag": "\"div\"",
+          "children": [
+            {
+              "type": 1,
+              "tag": "span",
+              "ns": 0,
+              "tagType": 0,
+              "props": [
+                {
+                  "type": 6,
+                  "name": "title",
+                  "nameLoc": {
+                    "start": { "column": 11, "line": 3, "offset": 19 },
+                    "end": { "column": 16, "line": 3, "offset": 24 },
+                    "source": "title"
+                  },
+                  "value": {
+                    "type": 2,
+                    "content": "标题",
+                    "loc": {
+                      "start": { "column": 17, "line": 3, "offset": 25 },
+                      "end": { "column": 21, "line": 3, "offset": 29 },
+                      "source": "\"标题\""
+                    }
+                  },
+                  "loc": {
+                    "start": { "column": 11, "line": 3, "offset": 19 },
+                    "end": { "column": 21, "line": 3, "offset": 29 },
+                    "source": "title=\"标题\""
+                  }
+                }
+              ],
+              "children": [],
+              "loc": {
+                "start": { "column": 5, "line": 3, "offset": 13 },
+                "end": { "column": 29, "line": 3, "offset": 37 },
+                "source": "<span title=\"标题\"></span>"
+              },
+              "codegenNode": {
+                "type": 13,
+                "tag": "\"span\"",
+                "props": {
+                  "type": 15,
+                  "loc": {
+                    "start": { "column": 5, "line": 3, "offset": 13 },
+                    "end": { "column": 29, "line": 3, "offset": 37 },
+                    "source": "<span title=\"标题\"></span>"
+                  },
+                  "properties": [
+                    {
+                      "type": 16,
+                      "loc": {
+                        "start": { "line": 1, "column": 1, "offset": 0 },
+                        "end": { "line": 1, "column": 1, "offset": 0 },
+                        "source": ""
+                      },
+                      "key": {
+                        "type": 4,
+                        "loc": {
+                          "start": { "column": 11, "line": 3, "offset": 19 },
+                          "end": { "column": 16, "line": 3, "offset": 24 },
+                          "source": "title"
+                        },
+                        "content": "title",
+                        "isStatic": true,
+                        "constType": 3
+                      },
+                      "value": {
+                        "type": 4,
+                        "loc": {
+                          "start": { "column": 17, "line": 3, "offset": 25 },
+                          "end": { "column": 21, "line": 3, "offset": 29 },
+                          "source": "\"标题\""
+                        },
+                        "content": "标题",
+                        "isStatic": true,
+                        "constType": 3
+                      }
+                    }
+                  ]
+                },
+                "isBlock": false,
+                "disableTracking": false,
+                "isComponent": false,
+                "loc": {
+                  "start": { "column": 5, "line": 3, "offset": 13 },
+                  "end": { "column": 29, "line": 3, "offset": 37 },
+                  "source": "<span title=\"标题\"></span>"
+                }
+              }
+            },
+            {
+              "type": 1,
+              "tag": "span",
+              "ns": 0,
+              "tagType": 0,
+              "props": [
+                {
+                  "type": 7,
+                  "name": "bind",
+                  "rawName": ":title",
+                  "exp": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 19, "line": 4, "offset": 56 },
+                      "end": { "column": 28, "line": 4, "offset": 65 },
+                      "source": "$t('标题2')"
+                    },
+                    "content": "$t('标题2')",
+                    "isStatic": false,
+                    "constType": 0
+                  },
+                  "arg": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 12, "line": 4, "offset": 49 },
+                      "end": { "column": 17, "line": 4, "offset": 54 },
+                      "source": "title"
+                    },
+                    "content": "title",
+                    "isStatic": true,
+                    "constType": 3
+                  },
+                  "modifiers": [],
+                  "loc": {
+                    "start": { "column": 11, "line": 4, "offset": 48 },
+                    "end": { "column": 29, "line": 4, "offset": 66 },
+                    "source": ":title=\"$t('标题2')\""
+                  }
+                }
+              ],
+              "children": [],
+              "loc": {
+                "start": { "column": 5, "line": 4, "offset": 42 },
+                "end": { "column": 37, "line": 4, "offset": 74 },
+                "source": "<span :title=\"$t('标题2')\"></span>"
+              },
+              "codegenNode": {
+                "type": 13,
+                "tag": "\"span\"",
+                "props": {
+                  "type": 15,
+                  "loc": {
+                    "start": { "column": 5, "line": 4, "offset": 42 },
+                    "end": { "column": 37, "line": 4, "offset": 74 },
+                    "source": "<span :title=\"$t('标题2')\"></span>"
+                  },
+                  "properties": [
+                    {
+                      "type": 16,
+                      "loc": {
+                        "start": { "line": 1, "column": 1, "offset": 0 },
+                        "end": { "line": 1, "column": 1, "offset": 0 },
+                        "source": ""
+                      },
+                      "key": {
+                        "type": 4,
+                        "loc": {
+                          "start": { "column": 12, "line": 4, "offset": 49 },
+                          "end": { "column": 17, "line": 4, "offset": 54 },
+                          "source": "title"
+                        },
+                        "content": "title",
+                        "isStatic": true,
+                        "constType": 3
+                      },
+                      "value": {
+                        "type": 4,
+                        "loc": {
+                          "start": { "column": 19, "line": 4, "offset": 56 },
+                          "end": { "column": 28, "line": 4, "offset": 65 },
+                          "source": "$t('标题2')"
+                        },
+                        "content": "$t('标题2')",
+                        "isStatic": false,
+                        "constType": 0
+                      }
+                    }
+                  ]
+                },
+                "patchFlag": "8 /* PROPS */",
+                "dynamicProps": "[\"title\"]",
+                "isBlock": false,
+                "disableTracking": false,
+                "isComponent": false,
+                "loc": {
+                  "start": { "column": 5, "line": 4, "offset": 42 },
+                  "end": { "column": 37, "line": 4, "offset": 74 },
+                  "source": "<span :title=\"$t('标题2')\"></span>"
+                }
+              }
+            },
+            {
+              "type": 1,
+              "tag": "span",
+              "ns": 0,
+              "tagType": 0,
+              "props": [],
+              "children": [
+                {
+                  "type": 2,
+                  "content": "你好吗",
+                  "loc": {
+                    "start": { "column": 11, "line": 5, "offset": 85 },
+                    "end": { "column": 14, "line": 5, "offset": 88 },
+                    "source": "你好吗"
+                  }
+                }
+              ],
+              "loc": {
+                "start": { "column": 5, "line": 5, "offset": 79 },
+                "end": { "column": 21, "line": 5, "offset": 95 },
+                "source": "<span>你好吗</span>"
+              },
+              "codegenNode": {
+                "type": 13,
+                "tag": "\"span\"",
+                "children": {
+                  "type": 2,
+                  "content": "你好吗",
+                  "loc": {
+                    "start": { "column": 11, "line": 5, "offset": 85 },
+                    "end": { "column": 14, "line": 5, "offset": 88 },
+                    "source": "你好吗"
+                  }
+                },
+                "isBlock": false,
+                "disableTracking": false,
+                "isComponent": false,
+                "loc": {
+                  "start": { "column": 5, "line": 5, "offset": 79 },
+                  "end": { "column": 21, "line": 5, "offset": 95 },
+                  "source": "<span>你好吗</span>"
+                }
+              }
+            },
+            {
+              "type": 1,
+              "tag": "span",
+              "ns": 0,
+              "tagType": 0,
+              "props": [],
+              "children": [
+                {
+                  "type": 5,
+                  "content": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 14, "line": 6, "offset": 109 },
+                      "end": { "column": 23, "line": 6, "offset": 118 },
+                      "source": "$t('你好吗')"
+                    },
+                    "content": "$t('你好吗')",
+                    "isStatic": false,
+                    "constType": 0
+                  },
+                  "loc": {
+                    "start": { "column": 11, "line": 6, "offset": 106 },
+                    "end": { "column": 26, "line": 6, "offset": 121 },
+                    "source": "{{ $t('你好吗') }}"
+                  }
+                }
+              ],
+              "loc": {
+                "start": { "column": 5, "line": 6, "offset": 100 },
+                "end": { "column": 33, "line": 6, "offset": 128 },
+                "source": "<span>{{ $t('你好吗') }}</span>"
+              },
+              "codegenNode": {
+                "type": 13,
+                "tag": "\"span\"",
+                "children": {
+                  "type": 5,
+                  "content": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 14, "line": 6, "offset": 109 },
+                      "end": { "column": 23, "line": 6, "offset": 118 },
+                      "source": "$t('你好吗')"
+                    },
+                    "content": "$t('你好吗')",
+                    "isStatic": false,
+                    "constType": 0
+                  },
+                  "loc": {
+                    "start": { "column": 11, "line": 6, "offset": 106 },
+                    "end": { "column": 26, "line": 6, "offset": 121 },
+                    "source": "{{ $t('你好吗') }}"
+                  }
+                },
+                "patchFlag": "1 /* TEXT */",
+                "isBlock": false,
+                "disableTracking": false,
+                "isComponent": false,
+                "loc": {
+                  "start": { "column": 5, "line": 6, "offset": 100 },
+                  "end": { "column": 33, "line": 6, "offset": 128 },
+                  "source": "<span>{{ $t('你好吗') }}</span>"
+                }
+              }
+            },
+            {
+              "type": 1,
+              "tag": "p",
+              "ns": 0,
+              "tagType": 0,
+              "props": [],
+              "children": [
+                {
+                  "type": 5,
+                  "content": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 11, "line": 7, "offset": 139 },
+                      "end": { "column": 27, "line": 7, "offset": 155 },
+                      "source": "en ? '英文' : '中文'"
+                    },
+                    "content": "en ? '英文' : '中文'",
+                    "isStatic": false,
+                    "constType": 0
+                  },
+                  "loc": {
+                    "start": { "column": 8, "line": 7, "offset": 136 },
+                    "end": { "column": 30, "line": 7, "offset": 158 },
+                    "source": "{{ en ? '英文' : '中文' }}"
+                  }
+                }
+              ],
+              "loc": {
+                "start": { "column": 5, "line": 7, "offset": 133 },
+                "end": { "column": 34, "line": 7, "offset": 162 },
+                "source": "<p>{{ en ? '英文' : '中文' }}</p>"
+              },
+              "codegenNode": {
+                "type": 13,
+                "tag": "\"p\"",
+                "children": {
+                  "type": 5,
+                  "content": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 11, "line": 7, "offset": 139 },
+                      "end": { "column": 27, "line": 7, "offset": 155 },
+                      "source": "en ? '英文' : '中文'"
+                    },
+                    "content": "en ? '英文' : '中文'",
+                    "isStatic": false,
+                    "constType": 0
+                  },
+                  "loc": {
+                    "start": { "column": 8, "line": 7, "offset": 136 },
+                    "end": { "column": 30, "line": 7, "offset": 158 },
+                    "source": "{{ en ? '英文' : '中文' }}"
+                  }
+                },
+                "patchFlag": "1 /* TEXT */",
+                "isBlock": false,
+                "disableTracking": false,
+                "isComponent": false,
+                "loc": {
+                  "start": { "column": 5, "line": 7, "offset": 133 },
+                  "end": { "column": 34, "line": 7, "offset": 162 },
+                  "source": "<p>{{ en ? '英文' : '中文' }}</p>"
+                }
+              }
+            },
+            {
+              "type": 3,
+              "content": " 注释 ",
+              "loc": {
+                "start": { "column": 5, "line": 8, "offset": 167 },
+                "end": { "column": 16, "line": 8, "offset": 178 },
+                "source": "<!-- 注释 -->"
+              }
+            }
+          ],
+          "isBlock": true,
+          "disableTracking": false,
+          "isComponent": false,
+          "loc": {
+            "start": { "column": 3, "line": 2, "offset": 3 },
+            "end": { "column": 9, "line": 9, "offset": 187 },
+            "source": "<div>\n    <span title=\"标题\"></span>\n    <span :title=\"$t('标题2')\"></span>\n    <span>你好吗</span>\n    <span>{{ $t('你好吗') }}</span>\n    <p>{{ en ? '英文' : '中文' }}</p>\n    <!-- 注释 -->\n  </div>"
+          }
+        }
+      }
+    ],
+    "helpers": {},
+    "components": [],
+    "directives": [],
+    "hoists": [],
+    "imports": [],
+    "cached": 0,
+    "temps": 0,
+    "codegenNode": {
+      "type": 13,
+      "tag": "\"div\"",
+      "children": [
+        {
+          "type": 1,
+          "tag": "span",
+          "ns": 0,
+          "tagType": 0,
+          "props": [
+            {
+              "type": 6,
+              "name": "title",
+              "nameLoc": {
+                "start": { "column": 11, "line": 3, "offset": 19 },
+                "end": { "column": 16, "line": 3, "offset": 24 },
+                "source": "title"
+              },
+              "value": {
+                "type": 2,
+                "content": "标题",
+                "loc": {
+                  "start": { "column": 17, "line": 3, "offset": 25 },
+                  "end": { "column": 21, "line": 3, "offset": 29 },
+                  "source": "\"标题\""
+                }
+              },
+              "loc": {
+                "start": { "column": 11, "line": 3, "offset": 19 },
+                "end": { "column": 21, "line": 3, "offset": 29 },
+                "source": "title=\"标题\""
+              }
+            }
+          ],
+          "children": [],
+          "loc": {
+            "start": { "column": 5, "line": 3, "offset": 13 },
+            "end": { "column": 29, "line": 3, "offset": 37 },
+            "source": "<span title=\"标题\"></span>"
+          },
+          "codegenNode": {
+            "type": 13,
+            "tag": "\"span\"",
+            "props": {
+              "type": 15,
+              "loc": {
+                "start": { "column": 5, "line": 3, "offset": 13 },
+                "end": { "column": 29, "line": 3, "offset": 37 },
+                "source": "<span title=\"标题\"></span>"
+              },
+              "properties": [
+                {
+                  "type": 16,
+                  "loc": {
+                    "start": { "line": 1, "column": 1, "offset": 0 },
+                    "end": { "line": 1, "column": 1, "offset": 0 },
+                    "source": ""
+                  },
+                  "key": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 11, "line": 3, "offset": 19 },
+                      "end": { "column": 16, "line": 3, "offset": 24 },
+                      "source": "title"
+                    },
+                    "content": "title",
+                    "isStatic": true,
+                    "constType": 3
+                  },
+                  "value": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 17, "line": 3, "offset": 25 },
+                      "end": { "column": 21, "line": 3, "offset": 29 },
+                      "source": "\"标题\""
+                    },
+                    "content": "标题",
+                    "isStatic": true,
+                    "constType": 3
+                  }
+                }
+              ]
+            },
+            "isBlock": false,
+            "disableTracking": false,
+            "isComponent": false,
+            "loc": {
+              "start": { "column": 5, "line": 3, "offset": 13 },
+              "end": { "column": 29, "line": 3, "offset": 37 },
+              "source": "<span title=\"标题\"></span>"
+            }
+          }
+        },
+        {
+          "type": 1,
+          "tag": "span",
+          "ns": 0,
+          "tagType": 0,
+          "props": [
+            {
+              "type": 7,
+              "name": "bind",
+              "rawName": ":title",
+              "exp": {
+                "type": 4,
+                "loc": {
+                  "start": { "column": 19, "line": 4, "offset": 56 },
+                  "end": { "column": 28, "line": 4, "offset": 65 },
+                  "source": "$t('标题2')"
+                },
+                "content": "$t('标题2')",
+                "isStatic": false,
+                "constType": 0
+              },
+              "arg": {
+                "type": 4,
+                "loc": {
+                  "start": { "column": 12, "line": 4, "offset": 49 },
+                  "end": { "column": 17, "line": 4, "offset": 54 },
+                  "source": "title"
+                },
+                "content": "title",
+                "isStatic": true,
+                "constType": 3
+              },
+              "modifiers": [],
+              "loc": {
+                "start": { "column": 11, "line": 4, "offset": 48 },
+                "end": { "column": 29, "line": 4, "offset": 66 },
+                "source": ":title=\"$t('标题2')\""
+              }
+            }
+          ],
+          "children": [],
+          "loc": {
+            "start": { "column": 5, "line": 4, "offset": 42 },
+            "end": { "column": 37, "line": 4, "offset": 74 },
+            "source": "<span :title=\"$t('标题2')\"></span>"
+          },
+          "codegenNode": {
+            "type": 13,
+            "tag": "\"span\"",
+            "props": {
+              "type": 15,
+              "loc": {
+                "start": { "column": 5, "line": 4, "offset": 42 },
+                "end": { "column": 37, "line": 4, "offset": 74 },
+                "source": "<span :title=\"$t('标题2')\"></span>"
+              },
+              "properties": [
+                {
+                  "type": 16,
+                  "loc": {
+                    "start": { "line": 1, "column": 1, "offset": 0 },
+                    "end": { "line": 1, "column": 1, "offset": 0 },
+                    "source": ""
+                  },
+                  "key": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 12, "line": 4, "offset": 49 },
+                      "end": { "column": 17, "line": 4, "offset": 54 },
+                      "source": "title"
+                    },
+                    "content": "title",
+                    "isStatic": true,
+                    "constType": 3
+                  },
+                  "value": {
+                    "type": 4,
+                    "loc": {
+                      "start": { "column": 19, "line": 4, "offset": 56 },
+                      "end": { "column": 28, "line": 4, "offset": 65 },
+                      "source": "$t('标题2')"
+                    },
+                    "content": "$t('标题2')",
+                    "isStatic": false,
+                    "constType": 0
+                  }
+                }
+              ]
+            },
+            "patchFlag": "8 /* PROPS */",
+            "dynamicProps": "[\"title\"]",
+            "isBlock": false,
+            "disableTracking": false,
+            "isComponent": false,
+            "loc": {
+              "start": { "column": 5, "line": 4, "offset": 42 },
+              "end": { "column": 37, "line": 4, "offset": 74 },
+              "source": "<span :title=\"$t('标题2')\"></span>"
+            }
+          }
+        },
+        {
+          "type": 1,
+          "tag": "span",
+          "ns": 0,
+          "tagType": 0,
+          "props": [],
+          "children": [
+            {
+              "type": 2,
+              "content": "你好吗",
+              "loc": {
+                "start": { "column": 11, "line": 5, "offset": 85 },
+                "end": { "column": 14, "line": 5, "offset": 88 },
+                "source": "你好吗"
+              }
+            }
+          ],
+          "loc": {
+            "start": { "column": 5, "line": 5, "offset": 79 },
+            "end": { "column": 21, "line": 5, "offset": 95 },
+            "source": "<span>你好吗</span>"
+          },
+          "codegenNode": {
+            "type": 13,
+            "tag": "\"span\"",
+            "children": {
+              "type": 2,
+              "content": "你好吗",
+              "loc": {
+                "start": { "column": 11, "line": 5, "offset": 85 },
+                "end": { "column": 14, "line": 5, "offset": 88 },
+                "source": "你好吗"
+              }
+            },
+            "isBlock": false,
+            "disableTracking": false,
+            "isComponent": false,
+            "loc": {
+              "start": { "column": 5, "line": 5, "offset": 79 },
+              "end": { "column": 21, "line": 5, "offset": 95 },
+              "source": "<span>你好吗</span>"
+            }
+          }
+        },
+        {
+          "type": 1,
+          "tag": "span",
+          "ns": 0,
+          "tagType": 0,
+          "props": [],
+          "children": [
+            {
+              "type": 5,
+              "content": {
+                "type": 4,
+                "loc": {
+                  "start": { "column": 14, "line": 6, "offset": 109 },
+                  "end": { "column": 23, "line": 6, "offset": 118 },
+                  "source": "$t('你好吗')"
+                },
+                "content": "$t('你好吗')",
+                "isStatic": false,
+                "constType": 0
+              },
+              "loc": {
+                "start": { "column": 11, "line": 6, "offset": 106 },
+                "end": { "column": 26, "line": 6, "offset": 121 },
+                "source": "{{ $t('你好吗') }}"
+              }
+            }
+          ],
+          "loc": {
+            "start": { "column": 5, "line": 6, "offset": 100 },
+            "end": { "column": 33, "line": 6, "offset": 128 },
+            "source": "<span>{{ $t('你好吗') }}</span>"
+          },
+          "codegenNode": {
+            "type": 13,
+            "tag": "\"span\"",
+            "children": {
+              "type": 5,
+              "content": {
+                "type": 4,
+                "loc": {
+                  "start": { "column": 14, "line": 6, "offset": 109 },
+                  "end": { "column": 23, "line": 6, "offset": 118 },
+                  "source": "$t('你好吗')"
+                },
+                "content": "$t('你好吗')",
+                "isStatic": false,
+                "constType": 0
+              },
+              "loc": {
+                "start": { "column": 11, "line": 6, "offset": 106 },
+                "end": { "column": 26, "line": 6, "offset": 121 },
+                "source": "{{ $t('你好吗') }}"
+              }
+            },
+            "patchFlag": "1 /* TEXT */",
+            "isBlock": false,
+            "disableTracking": false,
+            "isComponent": false,
+            "loc": {
+              "start": { "column": 5, "line": 6, "offset": 100 },
+              "end": { "column": 33, "line": 6, "offset": 128 },
+              "source": "<span>{{ $t('你好吗') }}</span>"
+            }
+          }
+        },
+        {
+          "type": 1,
+          "tag": "p",
+          "ns": 0,
+          "tagType": 0,
+          "props": [],
+          "children": [
+            {
+              "type": 5,
+              "content": {
+                "type": 4,
+                "loc": {
+                  "start": { "column": 11, "line": 7, "offset": 139 },
+                  "end": { "column": 27, "line": 7, "offset": 155 },
+                  "source": "en ? '英文' : '中文'"
+                },
+                "content": "en ? '英文' : '中文'",
+                "isStatic": false,
+                "constType": 0
+              },
+              "loc": {
+                "start": { "column": 8, "line": 7, "offset": 136 },
+                "end": { "column": 30, "line": 7, "offset": 158 },
+                "source": "{{ en ? '英文' : '中文' }}"
+              }
+            }
+          ],
+          "loc": {
+            "start": { "column": 5, "line": 7, "offset": 133 },
+            "end": { "column": 34, "line": 7, "offset": 162 },
+            "source": "<p>{{ en ? '英文' : '中文' }}</p>"
+          },
+          "codegenNode": {
+            "type": 13,
+            "tag": "\"p\"",
+            "children": {
+              "type": 5,
+              "content": {
+                "type": 4,
+                "loc": {
+                  "start": { "column": 11, "line": 7, "offset": 139 },
+                  "end": { "column": 27, "line": 7, "offset": 155 },
+                  "source": "en ? '英文' : '中文'"
+                },
+                "content": "en ? '英文' : '中文'",
+                "isStatic": false,
+                "constType": 0
+              },
+              "loc": {
+                "start": { "column": 8, "line": 7, "offset": 136 },
+                "end": { "column": 30, "line": 7, "offset": 158 },
+                "source": "{{ en ? '英文' : '中文' }}"
+              }
+            },
+            "patchFlag": "1 /* TEXT */",
+            "isBlock": false,
+            "disableTracking": false,
+            "isComponent": false,
+            "loc": {
+              "start": { "column": 5, "line": 7, "offset": 133 },
+              "end": { "column": 34, "line": 7, "offset": 162 },
+              "source": "<p>{{ en ? '英文' : '中文' }}</p>"
+            }
+          }
+        },
+        {
+          "type": 3,
+          "content": " 注释 ",
+          "loc": {
+            "start": { "column": 5, "line": 8, "offset": 167 },
+            "end": { "column": 16, "line": 8, "offset": 178 },
+            "source": "<!-- 注释 -->"
+          }
+        }
+      ],
+      "isBlock": true,
+      "disableTracking": false,
+      "isComponent": false,
+      "loc": {
+        "start": { "column": 3, "line": 2, "offset": 3 },
+        "end": { "column": 9, "line": 9, "offset": 187 },
+        "source": "<div>\n    <span title=\"标题\"></span>\n    <span :title=\"$t('标题2')\"></span>\n    <span>你好吗</span>\n    <span>{{ $t('你好吗') }}</span>\n    <p>{{ en ? '英文' : '中文' }}</p>\n    <!-- 注释 -->\n  </div>"
+      }
+    },
+    "loc": {
+      "start": { "column": 1, "line": 1, "offset": 0 },
+      "end": { "column": 1, "line": 10, "offset": 188 },
+      "source": "\n  <div>\n    <span title=\"标题\"></span>\n    <span :title=\"$t('标题2')\"></span>\n    <span>你好吗</span>\n    <span>{{ $t('你好吗') }}</span>\n    <p>{{ en ? '英文' : '中文' }}</p>\n    <!-- 注释 -->\n  </div>\n"
+    },
+    "transformed": true,
+    "filters": []
+  },
+  "code": "const _Vue = Vue\n\nreturn function render(_ctx, _cache) {\n  with (_ctx) {\n    const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, createCommentVNode: _createCommentVNode, openBlock: _openBlock, createElementBlock: _createElementBlock } = _Vue\n\n    return (_openBlock(), _createElementBlock(\"div\", null, [\n      _createElementVNode(\"span\", { title: \"标题\" }),\n      _createElementVNode(\"span\", { title: $t('标题2') }, null, 8 /* PROPS */, [\"title\"]),\n      _createElementVNode(\"span\", null, \"你好吗\"),\n      _createElementVNode(\"span\", null, _toDisplayString($t('你好吗')), 1 /* TEXT */),\n      _createElementVNode(\"p\", null, _toDisplayString(en ? '英文' : '中文'), 1 /* TEXT */),\n      _createCommentVNode(\" 注释 \")\n    ]))\n  }\n}",
+  "preamble": ""
+}
