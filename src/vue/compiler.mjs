@@ -1,8 +1,9 @@
 import path from 'node:path'
 import url from 'node:url'
 import fse from 'fs-extra'
-import compilerSfc from 'vue/compiler-sfc'
+import * as compilerSfc from 'vue/compiler-sfc'
 import compilerDom from '@vue/compiler-dom'
+import babel from '@babel/core'
 
 // __dirname is not defined in ES module scope
 const fileUrl = import.meta.url // file:///Users/yangxiaoping/Desktop/learn-vite/src/vue/compiler.mjs
@@ -21,7 +22,15 @@ const templateContent = parseFile.descriptor.template?.content
 
 const scriptContent = parseFile.descriptor.script?.content
 // 处理template
-const { ast } = parseFile.descriptor.template
-fse.writeFileSync(path.resolve(dirname, './ast.json'), JSON.stringify(parseFile.descriptor.template))
-fse.writeFileSync(path.resolve(dirname, './dom.json'), JSON.stringify(compilerDom.compile(parseFile.descriptor.template.content)))
+// const { ast } = parseFile.descriptor.template
+fse.writeFileSync(path.resolve(dirname, '../../data/ast.json'), JSON.stringify(parseFile.descriptor.template))
+
+const templateAst = compilerDom.compile(templateContent, { mode: 'module' })
+fse.writeFileSync(path.resolve(dirname, '../../data/dom.json'), JSON.stringify(templateAst))
+const babelAst = babel.parseSync(templateAst.code.replace('export', ''), {
+  sourceType: "unambiguous",
+  configFile: false, // 不读取根目录下的babel配置
+  babelrc: false
+})
+fse.writeFileSync(path.resolve(dirname, '../../data/babel.json'), JSON.stringify(babelAst))
 // console.log(parseFile.descriptor.template.ast)
