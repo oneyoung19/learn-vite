@@ -30,6 +30,6 @@ files.forEach(filename => {
     filename
   })
 
-  // fs.writeFileSync(filePath, generatedCode, 'utf8')
+  fs.writeFileSync(filePath, generatedCode, 'utf8')
 })
 

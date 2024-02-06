@@ -41,7 +41,7 @@ export function generateSfc(descriptor) {
   } = descriptor;
   [template, script, scriptSetup, ...styles, ...customBlocks].forEach(
     (block) => {
-      if (block?.type) {
+      if (block && typeof block.type !== 'undefined') {
         result += `<${block.type}${Object.entries(block.attrs).reduce(
           (attrCode, [attrName, attrValue]) => {
             if (attrValue === true) {
@@ -57,6 +57,7 @@ export function generateSfc(descriptor) {
       }
     },
   );
+  // console.log(descriptor, result)
   return result
   // return prettier.format(result, {
   //   parser: 'vue',
@@ -68,7 +69,7 @@ export function generateSfc(descriptor) {
 function generateElement(node, children) {
   let attributes = '';
 
-  if (node.props.length) {
+  if (node.props && node.props.length) {
     attributes = ` ${generateElementAttr(node.props)}`;
   }
 
@@ -106,6 +107,11 @@ export function generateTemplate(templateAst, children = '') {
   if (templateAst?.children?.length) {
     // @ts-expect-error 类型“InterpolationNode”上不存在属性“children”
     children = templateAst.children.reduce((result, child) => result + generateTemplate(child), '');
+  }
+  
+  // 根节点
+  if (templateAst.type === 0) {
+    return `<template>${generateElement(templateAst, children)}</template>`
   }
 
   // 元素节点
