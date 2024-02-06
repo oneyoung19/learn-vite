@@ -1,6 +1,6 @@
 import generator from '@babel/generator';
 const babelGenerator = generator.default
-// import prettier from 'prettier';
+import prettier from 'prettier';
 
 function generateElementAttr(attrs) {
   return attrs

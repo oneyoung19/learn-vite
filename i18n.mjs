@@ -29,7 +29,7 @@ files.forEach(filename => {
     filePath,
     filename
   })
-  
-  fs.writeFileSync(filePath, generatedCode, 'utf8')
+
+  // fs.writeFileSync(filePath, generatedCode, 'utf8')
 })
 

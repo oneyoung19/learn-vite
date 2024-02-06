@@ -11,6 +11,14 @@ import { FileType, NodeTypes } from './types.mjs'
 
 export default class {
   generatedCode = ''
+
+  // 提取的中文键值对
+  locales = {}
+
+  importVar = 'I18N'
+
+  importPath = ''
+
   constructor ({ sourceCode = '', filePath, filename }) {
     this.sourceCode = sourceCode
     this.filePath = filePath
@@ -18,6 +26,7 @@ export default class {
   }
   startTransform () {
     const descriptor = parseVue(this.sourceCode)
+    // 转译template
     if (hasChineseChar(descriptor.template.content)) {
       descriptor.template.content = generateTemplate({
         ...this.transformTemplate(descriptor?.template?.ast),

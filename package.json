@@ -17,6 +17,7 @@
     "fs-extra": "^11.2.0",
     "glob": "^10.3.10",
     "less": "^4.2.0",
+    "prettier": "2.4.1",
     "vite": "^5.0.8"
   },
   "dependencies": {
