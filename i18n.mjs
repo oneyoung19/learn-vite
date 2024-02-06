@@ -1,6 +1,7 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import { glob } from 'glob'
-import Transformer from 'src/vue/packages/transform.mjs'
+import Transformer from './src/vue/packages/transform.mjs'
 
 const options = {
   pattern: 'src/**/*.vue',
@@ -16,7 +17,7 @@ files.forEach(filename => {
   const filePath = path.resolve(process.cwd(), filename)
   const sourceCode = fs.readFileSync(filePath, 'utf8')
 
-  const { result } = new Transformer({
+  const { code } = new Transformer({
     code: sourceCode,
     // locales,
     // useUniqKey: options.useUniqKey,
@@ -24,6 +25,6 @@ files.forEach(filename => {
     filename
   })
 
-  fs.writeFileSync(filePath, result, 'utf8')
+  fs.writeFileSync(filePath, code, 'utf8')
 })
 
