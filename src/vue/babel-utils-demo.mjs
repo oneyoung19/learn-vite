@@ -13,7 +13,7 @@ const babelGenerator = generator.default
 
 const template = `<p>Hello World</p>` // html cant be parsed
 
-const script = `console.log('Hello World')`
+const script = `console.log("Hello World")`
 
 const ast = babel.parse(script)
 // console.log(ast)
@@ -41,5 +41,11 @@ const visitor = {
 
 const newAst = babel.traverse(ast, visitor)
 // console.log(babelGenerator)
-// console.log(babelGenerator(newAst))
+// console.log(babelGenerator(ast, {
+//   compact: false,
+//   jsescOption: {
+//     // not work
+//     quotes: 'single'
+//   }
+// }))
 console.log(babel.transformFromAst(ast).code)
