@@ -14,17 +14,22 @@ const files = await glob(options.pattern, {
 })
 
 files.forEach(filename => {
+  // 暂只支持vue文件
+  if (path.extname(filename) !== '.vue') {
+    return
+  }
   const filePath = path.resolve(process.cwd(), filename)
   const sourceCode = fs.readFileSync(filePath, 'utf8')
 
-  const { code } = new Transformer({
-    code: sourceCode,
+  const { generatedCode } = new Transformer({
+    sourceCode,
     // locales,
     // useUniqKey: options.useUniqKey,
     // importPath: options.importPath,
+    filePath,
     filename
   })
-
-  fs.writeFileSync(filePath, code, 'utf8')
+  
+  fs.writeFileSync(filePath, generatedCode, 'utf8')
 })
 

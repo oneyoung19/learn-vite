@@ -1,5 +1,6 @@
-import babelGenerator from '@babel/generator';
-import prettier from 'prettier';
+import generator from '@babel/generator';
+const babelGenerator = generator.default
+// import prettier from 'prettier';
 
 function generateElementAttr(attrs) {
   return attrs
@@ -56,12 +57,12 @@ export function generateSfc(descriptor) {
       }
     },
   );
-
-  return prettier.format(result, {
-    parser: 'vue',
-    semi: true,
-    singleQuote: true,
-  });
+  return result
+  // return prettier.format(result, {
+  //   parser: 'vue',
+  //   semi: true,
+  //   singleQuote: true,
+  // });
 }
 
 function generateElement(node, children) {
