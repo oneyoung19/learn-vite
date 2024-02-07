@@ -9,12 +9,19 @@ import babel from '@babel/core'
 import * as t from '@babel/types'
 
 function extractChar (char) {
-  console.log(char)
-  // const locale = char.trim();
+  char = char.trim()
   // const key = generateHash(locale);
-  this.locales[char] = char;
+  this.locales.forEach(locale => {
+    this.messages[locale] = this.messages[locale] || {}
+    if (locale === this.defaultLocale) {
+      this.messages[locale][char] = char
+    } else {
+      this.messages[locale][char] = ''
+    }
+  })
+  // this.messages[char] = char;
   // return key;
-  return char.trim()
+  return char
 }
 
 function createDirectiveAttr(type, name, value) {

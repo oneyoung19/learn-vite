@@ -23,7 +23,7 @@ files.forEach(filename => {
 
   const { generatedCode } = new Transformer({
     sourceCode,
-    // locales,
+    // messages,
     // useUniqKey: options.useUniqKey,
     // importPath: options.importPath,
     filePath,

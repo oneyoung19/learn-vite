@@ -10,9 +10,12 @@ import {
 
 export default class {
   generatedCode = ''
+  
+  locales = ['zh-cn', 'zh-hant', 'en']
+  defaultLocale = 'zh-cn'
 
   // 提取的中文键值对
-  locales = {}
+  messages = {}
 
   importVar = 'I18N'
 
@@ -22,7 +25,7 @@ export default class {
     this.sourceCode = sourceCode
     this.filePath = filePath
     this.startTransform()
-    console.log('locales', this.locales)
+    console.log('messages', this.messages)
   }
   startTransform () {
     const descriptor = parseVue(this.sourceCode)
