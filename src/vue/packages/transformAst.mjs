@@ -12,7 +12,7 @@ function extractChar (char) {
   console.log(char)
   // const locale = char.trim();
   // const key = generateHash(locale);
-  // this.locales[key] = locale;
+  this.locales[char] = char;
   // return key;
   return char.trim()
 }
@@ -85,7 +85,7 @@ export function transformTemplateAst (ast) {
       ) {
         console.log('prop', prop)
         const jsCode = generateInterpolation(
-          transformJsAst(parseJS(prop.exp?.content), { isInTemplate: true }),
+          transformJsAst.call(this, parseJS(prop.exp?.content), { isInTemplate: true }),
         );
         console.log('jsCode', jsCode)
         return createDirectiveAttr(
@@ -96,7 +96,7 @@ export function transformTemplateAst (ast) {
       }
       // 普通属性
       if (prop.type === 6 && hasChineseChar(prop.value?.content)) {
-        const localeKey = extractChar(prop.value?.content);
+        const localeKey = extractChar.call(this, prop.value?.content);
         console.log('localeKey', localeKey)
         return createDirectiveAttr('bind', prop.name, `$t('${localeKey}')`);
       }
@@ -108,7 +108,7 @@ export function transformTemplateAst (ast) {
     // @ts-expect-error 类型“{ type: number; loc: { source: string; }; }”缺少类型“TextCallNode”中的以下属性: content, codegenNodets(2322)
     ast.children = ast.children.map((child) => {
       if (child.type === 2 && hasChineseChar(child.content)) {
-        const localeKey = extractChar(child.content);
+        const localeKey = extractChar.call(this, child.content);
         return createInterpolationNode(`$t('${localeKey}')`);
       }
 
@@ -118,7 +118,8 @@ export function transformTemplateAst (ast) {
         && hasChineseChar(child.content?.content)
       ) {
         const jsCode = generateInterpolation(
-          transformJsAst(
+          transformJsAst.call(
+            this,
             parseJS(child.content?.content),
             { isInTemplate: true },
           ),
@@ -128,7 +129,7 @@ export function transformTemplateAst (ast) {
 
       // 元素
       if (child.type === 1) {
-        return transformTemplateAst(child);
+        return transformTemplateAst.call(this, child);
       }
 
       return child;
@@ -175,9 +176,10 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
     StringLiteral: {
       exit: (nodePath) => {
         if (hasChineseChar(nodePath.node.extra?.rawValue)) {
-          const localeKey = extractChar(
-            nodePath.node.extra?.rawValue,
-          );
+          const localeKey = extractChar.call(
+            this,
+            nodePath.node.extra?.rawValue
+          )
           console.log('nodePath', nodePath)
           if (fileType === FileType.JS) {
             shouldImportVar = true;
@@ -223,7 +225,7 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
           const replaceStr = nodePath.node.quasis
             .map((q) => q.value.cooked)
             .join('%s');
-          const localeKey = extractChar(replaceStr);
+          const localeKey = extractChar.call(this, replaceStr);
           const isIncludeInterpolation = !!nodePath.node.expressions?.length;
           if (fileType === FileType.JS) {
             shouldImportVar = true;
@@ -313,7 +315,8 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
     JSXText: {
       exit: (nodePath) => {
         if (hasChineseChar(nodePath.node.value)) {
-          const localeKey = extractChar(
+          const localeKey = extractChar.call(
+            this,
             nodePath.node.extra?.rawValue,
           );
 

@@ -22,16 +22,17 @@ export default class {
     this.sourceCode = sourceCode
     this.filePath = filePath
     this.startTransform()
+    console.log('locales', this.locales)
   }
   startTransform () {
     const descriptor = parseVue(this.sourceCode)
     // 转译template
     if (hasChineseChar(descriptor.template.content)) {
       fs.writeFileSync(path.resolve(process.cwd(), './data/ast.json'), JSON.stringify(descriptor?.template?.ast))
-      fs.writeFileSync(path.resolve(process.cwd(), './data/ast2.json'), JSON.stringify(transformTemplateAst(descriptor?.template?.ast)))
+      // fs.writeFileSync(path.resolve(process.cwd(), './data/ast2.json'), JSON.stringify(transformTemplateAst.call(this, descriptor?.template?.ast)))
       descriptor.template.content = generateTemplate({
-        // ...transformTemplateAst(descriptor?.template?.ast),
-        ...descriptor?.template?.ast,
+        ...transformTemplateAst.call(this, descriptor?.template?.ast),
+        // ...descriptor?.template?.ast,
         tag: '',
       })
       this.generatedCode = generateSfc(descriptor)
