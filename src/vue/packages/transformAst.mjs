@@ -192,11 +192,14 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
             );
           } else if (fileType === FileType.VUE) {
             if (isInTemplate) {
-              nodePath.replaceWith(
-                t.callExpression(t.identifier('$t'), [
-                  t.stringLiteral(localeKey),
-                ]),
-              );
+              // 如果父级不是$t 则添加$t
+              if (!(nodePath.parent && nodePath.parent.callee?.name === '$t')) {
+                nodePath.replaceWith(
+                  t.callExpression(t.identifier('$t'), [
+                    t.stringLiteral(localeKey),
+                  ]),
+                );
+              }
             } else {
               // this.$t
               nodePath.replaceWith(
