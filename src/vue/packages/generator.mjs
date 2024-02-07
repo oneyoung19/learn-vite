@@ -58,12 +58,12 @@ export function generateSfc(descriptor) {
     },
   );
   // console.log(descriptor, result)
-  return result
-  // return prettier.format(result, {
-  //   parser: 'vue',
-  //   semi: true,
-  //   singleQuote: true,
-  // });
+  // return result
+  return prettier.format(result, {
+    parser: 'vue',
+    semi: true,
+    singleQuote: true,
+  });
 }
 
 function generateElement(node, children) {
@@ -103,6 +103,7 @@ function generateElement(node, children) {
 }
 
 export function generateTemplate(templateAst, children = '') {
+  console.log(templateAst)
   // @ts-expect-error 类型“InterpolationNode”上不存在属性“children”。
   if (templateAst?.children?.length) {
     // @ts-expect-error 类型“InterpolationNode”上不存在属性“children”
@@ -111,7 +112,8 @@ export function generateTemplate(templateAst, children = '') {
   
   // 根节点
   if (templateAst.type === 0) {
-    return `<template>${generateElement(templateAst, children)}</template>`
+    // return `<template>${generateElement(templateAst, children)}</template>`
+    return generateElement(templateAst, children)
   }
 
   // 元素节点

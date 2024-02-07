@@ -82,7 +82,7 @@ export function transformTemplateAst (ast) {
         && hasChineseChar(prop.exp?.content)
       ) {
         const jsCode = generateInterpolation(
-          transformJsAst(parseJS(prop.exp?.content), true),
+          transformJsAst(parseJS(prop.exp?.content), { isInTemplate: true }),
         );
         return createDirectiveAttr(
           prop.name,
@@ -95,7 +95,7 @@ export function transformTemplateAst (ast) {
         const localeKey = extractChar(prop.value?.content);
         return createDirectiveAttr('bind', prop.name, `$t('${localeKey}')`);
       }
-
+      
       return prop;
     });
   }
@@ -116,7 +116,7 @@ export function transformTemplateAst (ast) {
         const jsCode = generateInterpolation(
           transformJsAst(
             parseJS(child.content?.content),
-            true,
+            { isInTemplate: true },
           ),
         );
         return createInterpolationNode(jsCode);

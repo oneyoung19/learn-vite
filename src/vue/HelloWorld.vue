@@ -24,4 +24,7 @@ export default {
 </script>
 
 <style scoped lang="less">
+.container {
+  width: 100%;
+}
 </style>
