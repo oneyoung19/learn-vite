@@ -18,7 +18,8 @@ export function generateInterpolation(ast) {
   return babelGenerator(ast, {
     compact: false,
     jsescOption: {
-      quotes: 'single',
+      // quotes: 'single',
+      minimal: true
     },
   }).code.replace(/;/gm, '');
 }
@@ -103,7 +104,7 @@ function generateElement(node, children) {
 }
 
 export function generateTemplate(templateAst, children = '') {
-  console.log(templateAst)
+  // console.log(templateAst)
   // @ts-expect-error 类型“InterpolationNode”上不存在属性“children”。
   if (templateAst?.children?.length) {
     // @ts-expect-error 类型“InterpolationNode”上不存在属性“children”

@@ -48,6 +48,7 @@ function createInterpolationNode(content) {
 }
 
 export function transformTemplateAst (ast) {
+  // console.log(ast)
   /**
    * this is a hack
    * FIXME:指定 v-pre 的元素的属性及其子元素的属性和插值语法都不需要解析，
@@ -74,6 +75,7 @@ export function transformTemplateAst (ast) {
   }
 
   if (ast.props?.length) {
+    console.log('ast.props', JSON.stringify(ast.props))
     // @ts-expect-error 类型“{ name: string; type: number; loc: { source: string; }; }”缺少类型“DirectiveNode”中的以下属性: exp, arg, modifiersts(2322)
     ast.props = ast.props.map((prop) => {
       // vue指令
@@ -81,9 +83,11 @@ export function transformTemplateAst (ast) {
         prop.type === 7
         && hasChineseChar(prop.exp?.content)
       ) {
+        console.log('prop', prop)
         const jsCode = generateInterpolation(
           transformJsAst(parseJS(prop.exp?.content), { isInTemplate: true }),
         );
+        console.log('jsCode', jsCode)
         return createDirectiveAttr(
           prop.name,
           prop.arg?.content,
@@ -93,9 +97,9 @@ export function transformTemplateAst (ast) {
       // 普通属性
       if (prop.type === 6 && hasChineseChar(prop.value?.content)) {
         const localeKey = extractChar(prop.value?.content);
+        console.log('localeKey', localeKey)
         return createDirectiveAttr('bind', prop.name, `$t('${localeKey}')`);
       }
-      
       return prop;
     });
   }
@@ -174,7 +178,7 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
           const localeKey = extractChar(
             nodePath.node.extra?.rawValue,
           );
-
+          console.log('nodePath', nodePath)
           if (fileType === FileType.JS) {
             shouldImportVar = true;
             nodePath.replaceWith(
