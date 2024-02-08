@@ -38,7 +38,8 @@ export default class {
         // ...descriptor?.template?.ast,
         tag: '',
       })
-      this.generatedCode = generateSfc(descriptor)
+      const writedCustomBlockDescriptor = this.writeCustomBlockToVue(descriptor)
+      this.generatedCode = generateSfc(writedCustomBlockDescriptor)
       console.log(this.generatedCode)
     }
   }
@@ -82,5 +83,17 @@ export default class {
   }
 
   // 在vue文件中写入<i18n> custom block
-  writeCustomBlockToVue () {}
+  writeCustomBlockToVue (descriptor) {
+    descriptor.customBlocks = Array.isArray(descriptor.customBlocks) ? descriptor.customBlocks : []
+    this.locales.forEach(locale => {
+      descriptor.customBlocks.push({
+        type: 'i18n',
+        content: '',
+        attrs: {
+          src: `./i18n/${locale}.json`
+        }
+      })
+    })
+    return descriptor
+  }
 }

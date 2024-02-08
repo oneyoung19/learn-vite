@@ -23,6 +23,8 @@ const templateContent = parseFile.descriptor.template?.content
 const scriptContent = parseFile.descriptor.script?.content
 // 处理template
 // const { ast } = parseFile.descriptor.template
+fse.mkdirSync(path.resolve(dirname, '../../data'))
+fse.writeFileSync(path.resolve(dirname, '../../data/descriptor.json'), JSON.stringify(parseFile.descriptor))
 fse.writeFileSync(path.resolve(dirname, '../../data/template.json'), JSON.stringify(parseFile.descriptor.template))
 fse.writeFileSync(path.resolve(dirname, '../../data/script.json'), JSON.stringify(parseFile.descriptor.script))
 fse.writeFileSync(path.resolve(dirname, '../../data/styles.json'), JSON.stringify(parseFile.descriptor.styles))
