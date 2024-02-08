@@ -10,7 +10,6 @@ import * as t from '@babel/types'
 
 function extractChar (char) {
   char = char.trim()
-  // const key = generateHash(locale);
   this.locales.forEach(locale => {
     this.messages[locale] = this.messages[locale] || {}
     if (locale === this.defaultLocale) {
@@ -19,8 +18,6 @@ function extractChar (char) {
       this.messages[locale][char] = ''
     }
   })
-  // this.messages[char] = char;
-  // return key;
   return char
 }
 

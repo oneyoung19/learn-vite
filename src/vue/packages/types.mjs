@@ -1,4 +1,4 @@
-// 文件类型
+// File type
 export const FileType = {
   JS: '.js',
   VUE: '.vue',
@@ -7,7 +7,7 @@ export const FileType = {
   TS: '.ts'
 }
 
-// vue ast节点类型
+// SFC AST node types
 export const NodeTypes = {
   ROOT: 0,
   ELEMENT: 1,

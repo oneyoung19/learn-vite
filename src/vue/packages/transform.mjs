@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { parseVue } from './parse.mjs'
+import { parseSFC } from './parse.mjs'
 import { transformTemplateAst, transformJsAst } from './transformAst.mjs'
 import { hasChineseChar } from './utils.mjs'
 import {
@@ -28,7 +28,7 @@ export default class {
     this.createI18nJSON()
   }
   startTransform () {
-    const descriptor = parseVue(this.sourceCode)
+    const descriptor = parseSFC(this.sourceCode)
     // 转译template
     if (hasChineseChar(descriptor.template.content)) {
       fs.writeFileSync(path.resolve(process.cwd(), './data/ast.json'), JSON.stringify(descriptor?.template?.ast))
