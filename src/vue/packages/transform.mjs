@@ -37,13 +37,13 @@ export default class {
         // ...descriptor?.template?.ast,
         tag: '',
       })
-      const writedCustomBlockDescriptor = this.writeCustomBlockToVue(descriptor)
+      const writedCustomBlockDescriptor = this.writeCustomBlocksToSFC(descriptor)
       this.generatedCode = generateSFC(writedCustomBlockDescriptor)
       console.log(this.generatedCode)
     }
   }
   
-  // 创建i18n目录并写入相关JSON
+  // Create i18n dir and create locale JSON files
   createI18nJSON () {
     const dir = path.dirname(this.filePath)
     const i18nDir = `${dir}/i18n`
@@ -81,9 +81,24 @@ export default class {
     })
   }
 
-  // 在vue文件中写入<i18n> custom block
-  writeCustomBlockToVue (descriptor) {
+  // Write i18n custom blocks to SFC
+  writeCustomBlocksToSFC (descriptor) {
     descriptor.customBlocks = Array.isArray(descriptor.customBlocks) ? descriptor.customBlocks : []
+    const i18nCustomBlockIndexs = []
+    descriptor.customBlocks.forEach((customBlock, blockIndex) => {
+      if (customBlock.type === 'i18n' && customBlock.attrs?.src && (
+        this.locales.map(locale => `./i18n/${locale}.json`).includes(customBlock.attrs.src)
+      )) {
+        i18nCustomBlockIndexs.push(blockIndex)
+      }
+    })
+    // If i18n custom blocks exists
+    if (i18nCustomBlockIndexs.length > 0) {
+      for (let i = i18nCustomBlockIndexs.length - 1; i >= 0; i--) {
+        descriptor.customBlocks.splice(i, 1)
+      }
+    }
+    // Add custom blocks
     this.locales.forEach(locale => {
       descriptor.customBlocks.push({
         type: 'i18n',
