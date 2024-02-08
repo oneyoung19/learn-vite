@@ -16,6 +16,9 @@ export default class {
 
   messages = {}
 
+  i18nDirname = 'i18n'
+  i18nCustomBlockType = 'i18n'
+
   importVar = 'I18N'
 
   importPath = ''
@@ -42,20 +45,33 @@ export default class {
       console.log(this.generatedCode)
     }
   }
+
+  getPathOfI18n (locale = '', { relative = false } = {}) {
+    if (relative) {
+      const i18nJsonRelativePath = `./${this.i18nDirname}/${locale}.json`
+      return i18nJsonRelativePath
+    }
+    const dir = path.dirname(this.filePath)
+    const i18nDir = `${dir}/${this.i18nDirname}`
+    const i18nJson = `${i18nDir}/${locale}.json`
+    return {
+      i18nDir,
+      i18nJson
+    }
+  }
   
   // Create i18n dir and create locale JSON files
   createI18nJSON () {
-    const dir = path.dirname(this.filePath)
-    const i18nDir = `${dir}/i18n`
+      const { i18nDir } = this.getPathOfI18n()
       fs.mkdir(i18nDir, { recursive: true }, (err) => {
         if (err) {
           console.error('Error creating directory:', err)
         } else {
           this.locales.forEach(locale => {
             const message = this.messages[locale]
-            const localeFile = `${i18nDir}/${locale}.json`
-            if (fs.existsSync(localeFile)) {
-              const fileContent = fs.readFileSync(localeFile, 'utf8')
+            const { i18nJson } = this.getPathOfI18n(locale)
+            if (fs.existsSync(i18nJson)) {
+              const fileContent = fs.readFileSync(i18nJson, 'utf8')
               if (fileContent) {
                 const fileData = JSON.parse(fileContent)
                 handle(fileData)
@@ -73,7 +89,7 @@ export default class {
                 }
               }
             }
-            fs.writeFileSync(localeFile, JSON.stringify({
+            fs.writeFileSync(i18nJson, JSON.stringify({
               [locale]: message
             }))
           })
@@ -86,8 +102,8 @@ export default class {
     descriptor.customBlocks = Array.isArray(descriptor.customBlocks) ? descriptor.customBlocks : []
     const i18nCustomBlockIndexs = []
     descriptor.customBlocks.forEach((customBlock, blockIndex) => {
-      if (customBlock.type === 'i18n' && customBlock.attrs?.src && (
-        this.locales.map(locale => `./i18n/${locale}.json`).includes(customBlock.attrs.src)
+      if ((customBlock.type === this.i18nCustomBlockType) && customBlock.attrs?.src && (
+        this.locales.map(locale => this.getPathOfI18n(locale, { relative: true })).includes(customBlock.attrs.src)
       )) {
         i18nCustomBlockIndexs.push(blockIndex)
       }
@@ -101,10 +117,10 @@ export default class {
     // Add custom blocks
     this.locales.forEach(locale => {
       descriptor.customBlocks.push({
-        type: 'i18n',
+        type: this.i18nCustomBlockType,
         content: '',
         attrs: {
-          src: `./i18n/${locale}.json`
+          src: this.getPathOfI18n(locale, { relative: true })
         }
       })
     })
