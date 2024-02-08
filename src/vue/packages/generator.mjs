@@ -4,67 +4,8 @@ import prettier from 'prettier';
 
 function generateElementAttr(attrs) {
   return attrs
-    .map((attr) => attr.loc.source)
-    .join(' ');
-}
-
-/**
- * 生成template内部JS表达式
- * 字符串需要使用单引号
- * 函数调用末尾的分号需要移除
- */
-export function generateInterpolation(ast) {
-  // that's a hack, because @babel/generator will give a semi after a callexpression
-  return babelGenerator(ast, {
-    compact: false,
-    jsescOption: {
-      // quotes: 'single',
-      minimal: true
-    },
-  }).code.replace(/;/gm, '');
-}
-
-/**
- * 生成script内部的JS
- */
-export function generateJS(ast) {
-  return babelGenerator(ast).code;
-}
-
-/**
- * 组合template，script，style
- */
-export function generateSfc(descriptor) {
-  let result = '';
-
-  const {
-    template, script, scriptSetup, styles, customBlocks,
-  } = descriptor;
-  [template, script, scriptSetup, ...styles, ...customBlocks].forEach(
-    (block) => {
-      if (block && typeof block.type !== 'undefined') {
-        result += `<${block.type}${Object.entries(block.attrs).reduce(
-          (attrCode, [attrName, attrValue]) => {
-            if (attrValue === true) {
-              attrCode += ` ${attrName}`;
-            } else {
-              attrCode += ` ${attrName}="${attrValue}"`;
-            }
-
-            return attrCode;
-          },
-          ' ',
-        )}>${block.content}</${block.type}>`;
-      }
-    },
-  );
-  // console.log(descriptor, result)
-  // return result
-  return prettier.format(result, {
-    parser: 'vue',
-    semi: true,
-    singleQuote: true,
-  });
+    .map(attr => attr.loc.source)
+    .join(' ')
 }
 
 function generateElement(node, children) {
@@ -105,21 +46,67 @@ function generateElement(node, children) {
 
 export function generateTemplate(templateAst, children = '') {
   // console.log(templateAst)
-  // 类型“InterpolationNode”上不存在属性“children”。
   if (templateAst?.children?.length) {
     children = templateAst.children.reduce((result, child) => result + generateTemplate(child), '');
   }
   
-  // 根节点
+  // ROOT Node
   if (templateAst.type === 0) {
-    // return `<template>${generateElement(templateAst, children)}</template>`
     return generateElement(templateAst, children)
   }
 
-  // 元素节点
+  // Element Node
   if (templateAst.type === 1) {
     return generateElement(templateAst, children);
   }
 
   return templateAst.loc.source;
+}
+
+export function generateInterpolation(ast) {
+  // @babel/generator will generate a semi after a callexpression, so remove it manually.
+  return babelGenerator(ast, {
+    compact: false,
+    jsescOption: {
+      // [set mimimal to avoid escape sequence](https://github.com/babel/babel/issues/4909)
+      minimal: true
+    },
+  }).code.replace(/;/gm, '')
+}
+
+export function generateJS(ast) {
+  return babelGenerator(ast).code
+}
+
+export function generateSFC(descriptor) {
+  let result = '';
+
+  const {
+    template, script, scriptSetup, styles, customBlocks,
+  } = descriptor;
+  [template, script, scriptSetup, ...styles, ...customBlocks].forEach(
+    (block) => {
+      if (block && typeof block.type !== 'undefined') {
+        result += `<${block.type}${Object.entries(block.attrs).reduce(
+          (attrCode, [attrName, attrValue]) => {
+            if (attrValue === true) {
+              attrCode += ` ${attrName}`;
+            } else {
+              attrCode += ` ${attrName}="${attrValue}"`;
+            }
+
+            return attrCode;
+          },
+          ' ',
+        )}>${block.content}</${block.type}>`;
+      }
+    },
+  );
+  // console.log(descriptor, result)
+  // return result
+  return prettier.format(result, {
+    parser: 'vue',
+    semi: true,
+    singleQuote: true,
+  });
 }

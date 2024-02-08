@@ -5,7 +5,7 @@ import { transformTemplateAst, transformJsAst } from './transformAst.mjs'
 import { hasChineseChar } from './utils.mjs'
 import {
   generateTemplate,
-  generateSfc,
+  generateSFC,
 } from './generator.mjs'
 
 export default class {
@@ -14,7 +14,6 @@ export default class {
   locales = ['zh-cn', 'zh-hant', 'en']
   defaultLocale = 'zh-cn'
 
-  // 提取的中文键值对
   messages = {}
 
   importVar = 'I18N'
@@ -39,7 +38,7 @@ export default class {
         tag: '',
       })
       const writedCustomBlockDescriptor = this.writeCustomBlockToVue(descriptor)
-      this.generatedCode = generateSfc(writedCustomBlockDescriptor)
+      this.generatedCode = generateSFC(writedCustomBlockDescriptor)
       console.log(this.generatedCode)
     }
   }
