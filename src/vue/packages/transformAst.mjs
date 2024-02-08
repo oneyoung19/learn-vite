@@ -1,10 +1,11 @@
 import { parseJS } from './parse.mjs'
 import { hasChineseChar } from './utils.mjs'
-import { FileType, NodeTypes } from './types.mjs'
+import { FileType } from './types/index.mjs'
 import {
   generateJS,
   generateInterpolation,
 } from './generator.mjs'
+import { createDirectiveNode, createInterpolationNode } from './types/createNodes.mjs'
 import babel from '@babel/core'
 import * as t from '@babel/types'
 
@@ -19,36 +20,6 @@ function extractChar (char) {
     }
   })
   return char
-}
-
-function createDirectiveAttr(type, name, value) {
-  // 处理特殊的事件属性
-  if (type === 'on') {
-    return {
-      name: 'on',
-      type: NodeTypes.DIRECTIVE,
-      loc: {
-        source: `@${name}="${value}"`,
-      },
-    };
-  }
-
-  return {
-    name: 'bind',
-    type: NodeTypes.DIRECTIVE,
-    loc: {
-      source: `:${name}="${value}"`,
-    },
-  };
-}
-
-function createInterpolationNode(content) {
-  return {
-    type: NodeTypes.INTERPOLATION,
-    loc: {
-      source: `{{ ${content} }}`,
-    },
-  };
 }
 
 export function transformTemplateAst (ast) {
@@ -91,7 +62,7 @@ export function transformTemplateAst (ast) {
           transformJsAst.call(this, parseJS(prop.exp?.content), { isInTemplate: true }),
         );
         console.log('jsCode', jsCode)
-        return createDirectiveAttr(
+        return createDirectiveNode(
           prop.name,
           prop.arg?.content,
           jsCode,
@@ -102,7 +73,7 @@ export function transformTemplateAst (ast) {
       if (prop.type === 6 && hasChineseChar(prop.value?.content)) {
         const localeKey = extractChar.call(this, prop.value?.content);
         console.log('localeKey', localeKey)
-        return createDirectiveAttr('bind', prop.name, `$t('${localeKey}')`)
+        return createDirectiveNode('bind', prop.name, `$t('${localeKey}')`)
       }
       return prop
     })
