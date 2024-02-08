@@ -27,7 +27,7 @@ files.forEach(filename => {
     // useUniqKey: options.useUniqKey,
     // importPath: options.importPath,
     filePath,
-    filename
+    // filename
   })
 
   fs.writeFileSync(filePath, generatedCode, 'utf8')
