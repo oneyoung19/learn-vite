@@ -83,7 +83,6 @@ export function transformTemplateAst (ast) {
 
   if (ast.props?.length) {
     console.log('ast.props', JSON.stringify(ast.props))
-    // @ts-expect-error 类型“{ name: string; type: number; loc: { source: string; }; }”缺少类型“DirectiveNode”中的以下属性: exp, arg, modifiersts(2322)
     ast.props = ast.props.map((prop) => {
       // vue指令
       if (
@@ -99,31 +98,33 @@ export function transformTemplateAst (ast) {
           prop.name,
           prop.arg?.content,
           jsCode,
-        );
+        )
       }
+
       // 普通属性
       if (prop.type === 6 && hasChineseChar(prop.value?.content)) {
         const localeKey = extractChar.call(this, prop.value?.content);
         console.log('localeKey', localeKey)
-        return createDirectiveAttr('bind', prop.name, `$t('${localeKey}')`);
+        return createDirectiveAttr('bind', prop.name, `$t('${localeKey}')`)
       }
-      return prop;
-    });
+      return prop
+    })
   }
 
   if (ast.children.length) {
-    // @ts-expect-error 类型“{ type: number; loc: { source: string; }; }”缺少类型“TextCallNode”中的以下属性: content, codegenNodets(2322)
     ast.children = ast.children.map((child) => {
+      // 普通文本
       if (child.type === 2 && hasChineseChar(child.content)) {
         const localeKey = extractChar.call(this, child.content);
         return createInterpolationNode(`$t('${localeKey}')`);
       }
 
-      // 插值语法，插值语法的内容包含在child.content内部，如果匹配到中文字符，则进行JS表达式解析并替换
+      // 插值表达式
       if (
         child.type === 5
         && hasChineseChar(child.content?.content)
       ) {
+        console.log('child', child)
         const jsCode = generateInterpolation(
           transformJsAst.call(
             this,
@@ -139,15 +140,14 @@ export function transformTemplateAst (ast) {
         return transformTemplateAst.call(this, child);
       }
 
-      return child;
-    });
+      return child
+    })
   }
 
-  return ast;
+  return ast
 }
 
 export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
-  // const ast = parseJS(code);
   let shouldImportVar = false;
 
   const visitor = {
@@ -319,6 +319,21 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
         }
       },
     },
+    // @babel/parse会将{{ '你好' }}解析为DirectiveLiteral
+    // Property value of Directive expected node to be of a type ["DirectiveLiteral"] but instead got callExpression
+    // DirectiveLiteral: {
+    //   exit: nodePath => {
+    //     console.log('hello', nodePath)
+    //     const localeKey = extractChar.call(this, nodePath.node.extra.rawValue)
+    //     if (hasChineseChar(localeKey)) {
+    //       nodePath.replaceWith(
+    //         t.callExpression(t.identifier('$t'), [
+    //           t.stringLiteral(localeKey),
+    //         ]),
+    //       )
+    //     }
+    //   }
+    // },
     JSXText: {
       exit: (nodePath) => {
         if (hasChineseChar(nodePath.node.value)) {
@@ -338,7 +353,7 @@ export function transformJsAst (ast, { isInTemplate, fileType = '.vue' } = {}) {
       },
     },
   };
-
+  console.log('ast', ast)
   babel.traverse(ast, visitor);
   return ast;
 }

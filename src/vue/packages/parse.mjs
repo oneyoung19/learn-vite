@@ -7,8 +7,10 @@ export function parseVue(code) {
 }
 
 export function parseJS(code) {
-  return babel.parse(code, {
+  return babel.parseSync(code, {
     sourceType: 'module',
+    configFile: false, // 不读取根目录下的babel配置
+    babelrc: false
     // plugins: ['jsx'],
   })
 }
