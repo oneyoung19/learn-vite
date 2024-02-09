@@ -19,6 +19,10 @@ export default {
     }
   },
   created () {
+    console.log(this.$t('脚本执行1'))
+    console.log(this.$t(`脚本执行2`))
+    console.log(this.$t(`脚本执行${1+2}`))
+    const result = true ? this.$t('脚本执行4') : this.$t('脚本执行5')
   },
   methods: {
   }
