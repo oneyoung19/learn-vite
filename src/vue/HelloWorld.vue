@@ -24,6 +24,7 @@ export default {
     console.log(this.$t(`脚本执行${1+2}`))
     const result = true ? this.$t('脚本执行4') : this.$t('脚本执行5')
     console.log(result + ' ' + ' ' + ' ')
+    console.log('Not happy at all')
   },
   methods: {
   }
