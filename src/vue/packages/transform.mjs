@@ -19,10 +19,6 @@ export default class {
   i18nDirname = 'i18n'
   i18nCustomBlockType = 'i18n'
 
-  importVar = 'I18N'
-
-  importPath = ''
-
   constructor ({ sourceCode = '', filePath }) {
     this.sourceCode = sourceCode
     this.filePath = filePath
@@ -62,38 +58,38 @@ export default class {
   
   // Create i18n dir and create locale JSON files
   createI18nJSON () {
-      const { i18nDir } = this.getPathOfI18n()
-      fs.mkdir(i18nDir, { recursive: true }, (err) => {
-        if (err) {
-          console.error('Error creating directory:', err)
-        } else {
-          this.locales.forEach(locale => {
-            const message = this.messages[locale]
-            const { i18nJson } = this.getPathOfI18n(locale)
-            if (fs.existsSync(i18nJson)) {
-              const fileContent = fs.readFileSync(i18nJson, 'utf8')
-              if (fileContent) {
-                const fileData = JSON.parse(fileContent)
-                handle(fileData)
-                function handle (data) {
-                  if (data) {
-                    const keys = Object.keys(data)
-                    keys.forEach(key => {
-                      if (typeof data[key] === 'string' || typeof data[key] === 'number') {
-                        message[key] = data[key]
-                      } else {
-                        handle(data[key])
-                      }
-                    })
-                  }
+    const { i18nDir } = this.getPathOfI18n()
+    fs.mkdir(i18nDir, { recursive: true }, (err) => {
+      if (err) {
+        console.error('Error creating directory:', err)
+      } else {
+        this.locales.forEach(locale => {
+          const message = this.messages[locale]
+          const { i18nJson } = this.getPathOfI18n(locale)
+          if (fs.existsSync(i18nJson)) {
+            const fileContent = fs.readFileSync(i18nJson, 'utf8')
+            if (fileContent) {
+              const fileData = JSON.parse(fileContent)
+              handle(fileData)
+              function handle (data) {
+                if (data) {
+                  const keys = Object.keys(data)
+                  keys.forEach(key => {
+                    if (typeof data[key] === 'string' || typeof data[key] === 'number') {
+                      message[key] = data[key]
+                    } else {
+                      handle(data[key])
+                    }
+                  })
                 }
               }
             }
-            fs.writeFileSync(i18nJson, JSON.stringify({
-              [locale]: message
-            }))
-          })
-        }
+          }
+          fs.writeFileSync(i18nJson, JSON.stringify({
+            [locale]: message
+          }))
+        })
+      }
     })
   }
 
