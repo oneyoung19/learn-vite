@@ -4,9 +4,10 @@ import './assets/styles/reset.less'
 import './assets/styles/custom.less'
 // 导入一个静态资源会返回解析后的URL 与添加?url参数表现一致
 import usdImg from './assets/image/usd.png'
+import enImg from './assets/image/cbibank-back-en.png'
 // 导入JSON vite会将json文件转化为ESM规范文件
-import student, { name } from './data/student.json'
-console.log(student, name)
+// import student, { name } from './data/student.json'
+// console.log(student, name)
 // 导入worker
 import MyWorker from './worker.js?worker'
 const worker = new MyWorker()

@@ -5,6 +5,7 @@
   "repository": "git@github.com:oneyoung19/learn-vite.git",
   "author": "yangxiaoping <2878847069@qq.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "vite build",
@@ -19,6 +20,7 @@
     "glob": "^10.3.10",
     "less": "^4.2.0",
     "prettier": "2.4.1",
+    "unplugin-imagemin": "^0.5.18",
     "vite": "^5.0.8"
   },
   "dependencies": {
