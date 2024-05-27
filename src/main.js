@@ -20,7 +20,7 @@ console.log('testGlobImport', testGlobImport)
 console.log(usdImg)
 // 在浏览器中利用原生ES导入 该语法会报错。因此vite需要预构建 Uncaught TypeError: Failed to resolve module specifier "lodash". Relative references must start with either "/", "./", or "../".
 import { camelCase } from 'lodash'
-import './vue/index.js'
+import './commonjs'
 
 console.log(camelCase('Hello World'))
 
