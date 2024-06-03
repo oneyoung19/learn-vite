@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <div>Layout</div>
+    <div>
+      <router-link :to="{ name: 'Home' }">Home</router-link> |
+      <router-link :to="{ name: 'About' }">About</router-link>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -18,7 +21,7 @@ export default {
 
 <style scoped lang="less">
 #app {
+  margin-top: 20px;
   border: 1px solid #000;
-  background-color: skyblue;
 }
 </style>
