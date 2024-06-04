@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <p>This is About Page</p>
+  <div class="hmr">
+    <p>This is HMR Page</p>
     <p>{{ `count is ${count} ?` }}</p>
     <button @click="count++">Add</button>
     <button @click="handleHmrData">Get HMR Data</button>
@@ -37,7 +37,7 @@ if (import.meta.hot) {
 </script>
 
 <style scoped lang="less">
-.about {
+.hmr {
   background-color: skyblue;
 }
 </style>
