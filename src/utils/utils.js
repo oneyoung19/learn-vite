@@ -3,3 +3,5 @@ export const plus = (a, b) => {
 }
 
 console.log('import.meta.url', import.meta.url)
+
+export const result = 'result123'
