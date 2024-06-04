@@ -27,6 +27,13 @@ export default {
     }
   }
 }
+
+if (import.meta.hot) {
+  // 由于“传播边界” 当子模块hmr.js不包含import.meta.hot时，此段代码才会触发
+  import.meta.hot.accept(['/src/utils/hmr.js'], (newModule) => {
+    console.error(newModule)
+  })
+}
 </script>
 
 <style scoped lang="less">
