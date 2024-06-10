@@ -8,8 +8,8 @@
   "type": "module",
   "scripts": {
     "install": "npx only-allow pnpm",
-    "start": "vite",
-    "build": "vite build",
+    "start": "vite --mode dev",
+    "build": "vite build --mode prod",
     "preview": "vite preview"
   },
   "devDependencies": {
