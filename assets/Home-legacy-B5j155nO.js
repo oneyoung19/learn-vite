@@ -1,1 +1,0 @@
-System.register(["./index-legacy-DAvH3mNK.js"],(function(e,n){"use strict";var t,o,r;return{setters:[function(e){t=e._,o=e.c,r=e.o}],execute:function(){e("default",t({data:function(){return{}},mounted:function(){console.log("Arrow Function")},methods:{}},[["render",function(e,n,t,u,i,c){return r(),o("div",null,"This is Home Page")}]]))}}}));
