@@ -8,6 +8,12 @@ export default {
     return {
     }
   },
+  mounted () {
+    const arrowFn = () => {
+      console.log('Arrow Function')
+    }
+    arrowFn()
+  },
   methods: {
   }
 }
