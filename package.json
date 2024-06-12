@@ -10,6 +10,8 @@
     "install": "npx only-allow pnpm",
     "start": "vite --mode dev",
     "build": "vite build --mode prod",
+    "build:manifest": "vite build --mode prod --manifest --outDir dist-manifest",
+    "build:ssrManifest": "vite build --mode prod --ssrManifest --outDir dist-ssrManifest",
     "preview": "vite preview"
   },
   "devDependencies": {
