@@ -1,6 +1,5 @@
-import path from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
 import legacyPlugin from '@vitejs/plugin-legacy'
 // import imagemin from 'unplugin-imagemin/vite'
@@ -21,7 +20,7 @@ export default defineConfig(({ mode }) => {
       // outDir: 'dist-manifest',
       // manifest: true,
       // rollupOptions: {
-      //   input: path.resolve(__dirname, 'src/main.js')
+      //   input: resolve(__dirname, 'src/main.js')
       // }
     }
   }
