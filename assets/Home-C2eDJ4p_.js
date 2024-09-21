@@ -1,1 +1,0 @@
-import{_ as e,c as n,o as r}from"./index-BHVayKI8.js";const t={data(){return{}},mounted(){(()=>{console.log("Arrow Function")})()},methods:{}};function s(o,c,a,_,d,i){return r(),n("div",null,"This is Home Page")}const m=e(t,[["render",s]]);export{m as default};

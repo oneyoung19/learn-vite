@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as o}from"./index-GmGcj97f.js";const c={data(){return{}},methods:{}},s=o("input",{type:"file",accept:"image/*",capture:"camera"},null,-1),n=[s];function r(p,_,d,i,l,u){return a(),t("div",null,n)}const m=e(c,[["render",r]]);export{m as default};

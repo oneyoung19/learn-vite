@@ -1,0 +1,1 @@
+System.register(["./index-legacy-ClGp5S5P.js"],(function(e,t){"use strict";var n,r,u,c;return{setters:[function(e){n=e._,r=e.c,u=e.o,c=e.a}],execute:function(){var t={data:function(){return{}},methods:{}},a=[c("input",{type:"file",accept:"image/*",capture:"camera"},null,-1)];e("default",n(t,[["render",function(e,t,n,c,i,s){return u(),r("div",null,a)}]]))}}}));
