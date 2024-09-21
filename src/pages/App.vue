@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>
+    <div v-if="!($route.meta && $route.meta.hiddenMenu)">
       <router-link :to="{ name: 'Home' }">Home</router-link> |
       <router-link :to="{ name: 'HMR' }">HMR</router-link> |
       <router-link :to="{ name: 'Store' }">Store</router-link>
@@ -23,6 +23,6 @@ export default {
 <style scoped lang="less">
 #app {
   margin-top: 20px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
 }
 </style>

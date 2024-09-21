@@ -22,6 +22,9 @@ export default defineConfig(({ mode }) => {
       // rollupOptions: {
       //   input: resolve(__dirname, 'src/main.js')
       // }
+    },
+    server: {
+      host: '0.0.0.0'
     }
   }
 })

@@ -17,6 +17,14 @@ const router = createRouter({
       name: 'Store',
       path: '/store',
       component: () => import('@/pages/Store.vue')
+    },
+    {
+      name: 'Upload',
+      path: '/upload',
+      meta: {
+        hiddenMenu: true,
+      },
+      component: () => import('@/pages/Upload.vue')
     }
   ]
 })
